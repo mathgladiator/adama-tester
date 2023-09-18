@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Adama Tester",
+  "version": "1.0",
+  "description": "Browser tool to work with RxHTML and the Adama Platform Devbox",
+
+  "icons": {
+    "48": "icon.png"
+  },
+  
+  "sidebar_action": {
+    "default_icon": "icon.png",
+    "default_title" : "Adama Tester",
+    "default_panel": "panel.html"
+  },
+  
+  "permissions": [
+	  "*://*/*",
+    "storage",
+	  "tabs",
+	  "activeTab",
+	  "dns",
+	  "idle",
+	  "webRequest",
+	  "webRequestBlocking",
+	  "find"
+  ],
+
+  "web_accessible_resources": ["inject.js"],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  }
+}
